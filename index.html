@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="init()">
+    <h1> Books Shop</h1>
+
+    <table class="shop-table" border="1">
+
+        <thead>
+            <th>id</th>
+            <th>name</th>
+            <th>price</th>
+            <th>image</th>
+            <th>actions</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div class="modal">
+        <h5></h5>
+        <h6></h6>
+        <p></p>
+        rate of the book:
+        <div>
+            <button onclick="onUpdateRate(-1)">-</button>
+            <span class="rate" rate> 0 </span>
+            <button onclick="onUpdateRate(1)">+</button>
+            <button onclick="onCloseModal()">Close</button>
+        </div>
+    </div>
+    <button class="btn-add-book" onclick="onAddBook() "> create book </button>
+    <script src="js/storage.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/service.js"></script>
+</body>
+
+</html>
