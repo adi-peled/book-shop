@@ -5,37 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body onload="init()">
-    <h1> Books Shop</h1>
+    <h1 data-trans="title"> Books Shop</h1>
+    <div class="flex center">
 
-    <table class="shop-table" border="1">
 
-        <thead>
-            <th>id</th>
-            <th>name</th>
-            <th>price</th>
-            <th>image</th>
-            <th>actions</th>
-        </thead>
-        <tbody></tbody>
-    </table>
-    <div class="modal">
-        <h5></h5>
-        <h6></h6>
-        <p></p>
-        rate of the book:
-        <div>
-            <button onclick="onUpdateRate(-1)">-</button>
-            <span class="rate" rate> 0 </span>
-            <button onclick="onUpdateRate(1)">+</button>
-            <button onclick="onCloseModal()">Close</button>
-        </div>
+
+
+        <section class="flex column">
+
+            <select onchange="onSetLang(this.value)">
+                <option value="en">English</option>
+                <option value="he">עברית</option>
+            </select>
+
+            <table class="shop-table" border="1">
+                <thead>
+                    <th data-trans="id">id</th>
+                    <th onclick="onSortByName()" data-trans="name">name</th>
+                    <th onclick="onSortByPrice()" data-trans="price">price</th>
+                    <th data-trans="image">image</th>
+                    <th data-trans="actions">actions</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div class="modal">
+                <h5></h5>
+                <h6></h6>
+                <p></p>
+                <h6 data-trans="rate"> rate of the book:</h6>
+                <div>
+                    <button onclick="onUpdateRate(-1)">-</button>
+                    <span class="rate" rate> 0 </span>
+                    <button onclick="onUpdateRate(1)">+</button>
+                    <button data-trans="close" onclick="onCloseModal()">Close</button>
+                </div>
+            </div>
+            <div class="flex space-between">
+                <button onclick="onPrevPage()" class="btn" data-trans="prev-page"> previous page</button>
+                <input class="new-name" type="text"  data-trans="holder-name"    placeholder="name of the book">
+                <input class="new-price" type="number"  data-trans="holder-price"  placeholder="price of the book">
+                <button class="btn-add-book" data-trans="new-book" onclick="onAddBook()"> create book </button>
+                <button onclick="onNextPage()" class="btn" data-trans="next-page"> next page</button>
+
+            </div>
+        </section>
+
     </div>
-    <button class="btn-add-book" onclick="onAddBook() "> create book </button>
+    <script src="js/i18n-service.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/controller.js"></script>
     <script src="js/service.js"></script>
